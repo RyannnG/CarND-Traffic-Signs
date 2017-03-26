@@ -22,14 +22,18 @@ The goals / steps of this project are the following:
 [image5]: ./examples/disva.png "Traffic Sign 2"
 [image6]: ./examples/norm1.png "Traffic Sign 3"
 [image7]: ./examples/norm2.png "Traffic Sign 4"
-[image8]: ./examples/placeholder.png "Traffic Sign 5"
-[image9]: ./examples/placeholder.png "Traffic Sign 5"
-[image10]: ./examples/placeholder.png "Traffic Sign 5"
-[image11]: ./examples/placeholder.png "Traffic Sign 5"
-
-[image12]: ./examples/placeholder.png "Traffic Sign 5"
-
-[image13]: ./examples/placeholder.png "Traffic Sign 5"
+[image8]: ./examples/ex1.png "Traffic Sign 5"
+[image9]: ./examples/ex2.png "Traffic Sign 5"
+[image10]: ./examples/top1.png "Traffic Sign 5"
+[image11]: ./examples/top2.png "Traffic Sign 5"
+[image12]: ./examples/top3.png "Traffic Sign 5"
+[image13]: ./examples/top4.png "Traffic Sign 5"
+[image14]: ./examples/top5.png "Traffic Sign 5"
+[image15]: ./examples/top6.png "Traffic Sign 5"
+[image16]: ./examples/top7.png "Traffic Sign 5"
+[image17]: ./examples/top8.png "Traffic Sign 5"
+[image18]: ./examples/top9.png "Traffic Sign 5"
+[image19]: ./examples/top10.png "Traffic Sign 5"
 
 ## Rubric Points
 
@@ -143,7 +147,7 @@ My final model looked like LeNet and consisted of the following layers:
 
 The code for training the model is located in the **Train && Save** of the ipython notebook. 
 
-To train the model, I set batch size to 128 and iterated 10 epochs for getting a better result. I use Adam optimizer which works well in practice and compares favorably to other adaptive learning-method algorithms. The learning rate is set to 0.001with exponential decay to avoid overfitting.
+To train the model, I set batch size to 128 and iterated 20 epochs for getting a better result. I use Adam optimizer which works well in practice and compares favorably to other adaptive learning-method algorithms. The learning rate is set to 0.001with exponential decay to avoid overfitting.
 
 #### 5. Describe the approach taken for finding a solution. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
@@ -151,8 +155,8 @@ The code for calculating the accuracy of the model is located in the ninth cell 
 
 My final model results were:
 * training set accuracy of  97.7%
-* validation set accuracy of  94.8%
-* test set accuracy of  94.3%
+* validation set accuracy of  96.4%
+* test set accuracy of  96.1%
 
 I first use the LeNet architecture. The training loss drops very quickly but doesn't perform well on validation and test set. Then I change the depth of each convolution layer and add more hidden nodes in the fully connected layer. Then I also add dropout after each convolution layer and the first fully connected layer to avoid overfitting. The dropout rate on first two layer is 0.2 and 0.5 for the latter two layers.  The dropout layer shows astonishing  effects, the accuracy boost about 7% - 10%.
 
@@ -160,43 +164,62 @@ I first use the LeNet architecture. The training loss drops very quickly but doe
 
 ####1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
 
-Here are five German traffic signs that I found on the web:
+Here are 10 German traffic signs that I found on the web:
 
-![alt text][image8] ![alt text][image5] ![alt text][image6] 
-![alt text][image7] 
+![alt text][image8]
 
-The first image might be difficult to classify because ...
+ After preprocess:
+
+![alt text][image9]
+
+ All these images are in high resolution. But after preprocess , they blurred. Take "Children crossing"( 9th image , label:28) for example, it's difficult to recognize whether there is a human or an animal  in the triangle section and may confused with Roadworks and Wild animals.
 
 ####2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. Identify where in your code predictions were made. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
-The code for making predictions on my final model is located in the tenth cell of the Ipython notebook.
+The code for making predictions on my final model is located in the **"Step 3"** of the Ipython notebook.
 
 Here are the results of the prediction:
 
-|     Image     |  Prediction   |
-| :-----------: | :-----------: |
-|   Stop Sign   |   Stop sign   |
-|    U-turn     |    U-turn     |
-|     Yield     |     Yield     |
-|   100 km/h    |  Bumpy Road   |
-| Slippery Road | Slippery Road |
+|                 Image                 |              Prediction               |
+| :-----------------------------------: | :-----------------------------------: |
+|           Speed limit 60km            |           Speed limit 60km            |
+|     Dangerous curve to the right      |     Dangerous curve to the right      |
+|               No entry                |               No entry                |
+|               road work               |               road work               |
+|                 stop                  |                 stop                  |
+| Right of way at the next intersection | Right of way at the next intersection |
+|              keep right               |              keep right               |
+|             Traffic signs             |             Traffic signs             |
+|           Children Crossing           |           Children Crossing           |
+|                 Yield                 |                 Yield                 |
+
+The model was able to correctly guess 10 of the 10 traffic signs, which gives an accuracy of 100%. This compares favorably to the accuracy on the test set of 96.1%
+
+#### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction and identify where in your code softmax probabilities were outputted. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
+
+The code for making predictions on my final model is located at the end  of the Ipython notebook.
+
+For all images, the model is sure that which sign is the image (probability greater than 0.7). The top five soft max probabilities were
+
+![alt text][image10]
+
+![alt text][image11]
+
+![alt text][image12]
+
+![alt text][image13]
+
+![alt text][image14]
+
+![alt text][image15]
+
+![alt text][image16]
+
+![alt text][image17]
+
+![alt text][image18]
 
 
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
 
-####3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction and identify where in your code softmax probabilities were outputted. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
+![alt text][image19]
 
-The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
-
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
-
-| Probability |  Prediction   |
-| :---------: | :-----------: |
-|     .60     |   Stop sign   |
-|     .20     |    U-turn     |
-|     .05     |     Yield     |
-|     .04     |  Bumpy Road   |
-|     .01     | Slippery Road |
-
-
-For the second image ... 
