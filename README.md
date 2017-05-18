@@ -23,11 +23,9 @@ cd CarND-Traffic-Sign-Classifier-Project
 jupyter notebook Traffic_Sign_Classifier.ipynb
 ```
 
-### Project Final Report
-
-# **Traffic Sign Recognition**
-
 ---
+
+### Project Final Report
 
 **Build a Traffic Sign Recognition Project**
 
@@ -62,18 +60,14 @@ The goals / steps of this project are the following:
 [image18]: ./examples/top9.png "Traffic Sign 5"
 [image19]: ./examples/top10.png "Traffic Sign 5"
 
-## Rubric Points
-
-### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.
-
 ---
-### Writeup / README
+### README
 
 here is a link to my [project code](https://github.com/RyannnG/CarND-Traffic-Signs/Traffic_Sign_Classifier.ipynb)
 
-###Data Set Summary & Exploration
+### Data Set Summary & Exploration
 
-####1. Provide a basic summary of the data set and identify where in your code the summary was done. In the code, the analysis should be done using python, numpy and/or pandas methods rather than hardcoding results manually.
+#### 1. Provide a basic summary of the data set and identify where in your code the summary was done. In the code, the analysis should be done using python, numpy and/or pandas methods rather than hardcoding results manually.
 
 The code for this step is contained in the third code cell of the IPython notebook.  
 
@@ -85,7 +79,7 @@ signs data set:
 * The shape of a traffic sign image is (32, 32, 3)
 * The number of unique classes/labels in the data set is 43
 
-####2. Include an exploratory visualization of the dataset and identify where the code is in your code file.
+#### 2. Include an exploratory visualization of the dataset and identify where the code is in your code file.
 
 The code for this step is contained in the 4th-9th code cell of the IPython notebook.  
 
@@ -107,9 +101,9 @@ Here is the result:
 
 We can see that all train/test/valid dataset is not perfectly balanced, but they are consistant on  label distributions. 
 
-###Design and Test a Model Architecture
+### Design and Test a Model Architecture
 
-####1. Describe how, and identify where in your code, you preprocessed the image data. What tecniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc.
+#### 1. Describe how, and identify where in your code, you preprocessed the image data. What tecniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc.
 
 The code for this step is contained **Pre-process the Data Set**  of the IPython notebook.
 
@@ -140,7 +134,7 @@ I use the default data provided by the course link. The size of each dataset sho
 If we want more data for validation, we could use `train_test_split()` from `sklearn.utils` to split trainging data.
 
 
-####3. Describe, and identify where in your code, what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
+#### 3. Describe, and identify where in your code, what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
 The code for my final model is located in the **Model Architecture** of the ipython notebook. 
 
@@ -170,7 +164,7 @@ My final model looked like LeNet and consisted of the following layers:
 
 
 
-####4. Describe how, and identify where in your code, you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
+#### 4. Describe how, and identify where in your code, you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
 The code for training the model is located in the **Train && Save** of the ipython notebook. 
 
@@ -187,9 +181,9 @@ My final model results were:
 
 I first use the LeNet architecture. The training loss drops very quickly but doesn't perform well on validation and test set. Then I change the depth of each convolution layer and add more hidden nodes in the fully connected layer. Then I also add dropout after each convolution layer and the first fully connected layer to avoid overfitting. The dropout rate on first two layer is 0.2 and 0.5 for the latter two layers.  The dropout layer shows astonishing  effects, the accuracy boost about 7% - 10%.
 
-###Test a Model on New Images
+### Test a Model on New Images
 
-####1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
+#### 1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
 
 Here are 10 German traffic signs that I found on the web:
 
@@ -201,7 +195,7 @@ Here are 10 German traffic signs that I found on the web:
 
  All these images are in high resolution. But after preprocess , they blurred. Take "Children crossing"( 9th image , label:28) for example, it's difficult to recognize whether there is a human or an animal  in the triangle section and may confused with Roadworks and Wild animals.
 
-####2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. Identify where in your code predictions were made. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
+#### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. Identify where in your code predictions were made. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
 The code for making predictions on my final model is located in the **"Step 3"** of the Ipython notebook.
 
